@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Red_Side
+  - Red_Cube
+  - Blue_Cube
+  - Blue_Side
+  - InGameMenu
+  - Orange_Cube
+  - Green_Cube
+  - Sky_Cube
+  - Purple_Cube
+  - Green_Side
+  - Purple_Side
+  - Orange_Side
+  - Sky_Side
+  - Hand
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
