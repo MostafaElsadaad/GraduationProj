@@ -7,7 +7,7 @@ public class Game_Leader2 : MonoBehaviour
 {
     public static int points;
    
-    private int pause_moment, Clock, pause_time, resume_time, Stop_Watch, Max_Score = 3;
+    private int pause_moment, Clock, pause_time, resume_time, Stop_Watch, Max_Score = 4;
     public TextMeshProUGUI score, Final_Score, Finish_Time;
     public GameObject Pause_Menu, InGame_Menu, Level_Completed;
     public static string diffcuilty, Level;

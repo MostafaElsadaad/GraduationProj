@@ -18,6 +18,7 @@ TagManager:
   - Orange_Side
   - Sky_Side
   - Hand
+  - play_button
   layers:
   - Default
   - TransparentFX

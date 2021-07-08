@@ -42,26 +42,26 @@ public class Menus_Manager : MonoBehaviour
     //cubes levels menu
     public void levelOne()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync("Level One", LoadSceneMode.Single);
     }
 
     public void levelTwo()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadSceneAsync("Level Two", LoadSceneMode.Single);
     }
 
     public void levelThree()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+        SceneManager.LoadSceneAsync("Level Three", LoadSceneMode.Single);
     }
 
     public void levelFour()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
+        SceneManager.LoadSceneAsync("Level Four", LoadSceneMode.Single);
     }
     public void pianoTiles()
     {
-        SceneManager.LoadScene(6); 
+        SceneManager.LoadSceneAsync("PianoTiles", LoadSceneMode.Single);
     }
 
     //main menu
