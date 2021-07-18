@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 92205945}
   - component: {fileID: 92205941}
   - component: {fileID: 92205944}
+  - component: {fileID: 92205942}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -152,12 +153,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5c8970e6f2d49439af0748eeed15fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stop_Watch: 0
   score: {fileID: 532693432334313797}
   Final_Score: {fileID: 8307085922750665946}
   Finish_Time: {fileID: 8307085922750665945}
   Pause_Menu: {fileID: 96485867378731309}
   InGame_Menu: {fileID: 532693432334313798}
   Level_Completed: {fileID: 8307085922750665944}
+  PatientID: 
+  GameID: 
+  LevelID: 
+  MaxScore: 
+  Diffcuilty: 
+  TimeTaken: 
+  Score: 
+  Progress_URL: http://8a20952c6e8c.ngrok.io/progress
+--- !u!114 &92205942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92205940}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81d6ccb8ac129249acddc122a719416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &92205944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +546,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633450349}
   m_LocalRotation: {x: 0.19252197, y: 0, z: 0, w: 0.9812927}
-  m_LocalPosition: {x: 0.08, y: 1.46, z: -1.967}
+  m_LocalPosition: {x: 0.08, y: 1.46, z: -2.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1806,7 +1828,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1547069749}
+      objectReference: {fileID: 92205941}
+    - target: {fileID: 96485867950590513, guid: f5b163135c1da1545bf4c04231a4dcb2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 96485867950590519, guid: f5b163135c1da1545bf4c04231a4dcb2,
         type: 3}
       propertyPath: m_IsActive
@@ -2941,7 +2968,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1547069749}
+      objectReference: {fileID: 92205941}
+    - target: {fileID: 8307085922124838169, guid: 7beacb7963b9c2b44a92346b5077b220,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 8307085922124838170, guid: 7beacb7963b9c2b44a92346b5077b220,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2996,7 +3028,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1547069749}
+      objectReference: {fileID: 92205941}
+    - target: {fileID: 8307085922713746395, guid: 7beacb7963b9c2b44a92346b5077b220,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
     - target: {fileID: 8307085922713746396, guid: 7beacb7963b9c2b44a92346b5077b220,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3026,7 +3063,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1547069749}
+      objectReference: {fileID: 92205941}
+    - target: {fileID: 8307085922751232232, guid: 7beacb7963b9c2b44a92346b5077b220,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 8307085922751232233, guid: 7beacb7963b9c2b44a92346b5077b220,
         type: 3}
       propertyPath: m_AnchoredPosition.y

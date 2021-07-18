@@ -344,6 +344,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 104.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8307085922124838171, guid: 7beacb7963b9c2b44a92346b5077b220,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8307085922542188859, guid: 7beacb7963b9c2b44a92346b5077b220,
         type: 3}
       propertyPath: m_enableAutoSizing
@@ -369,6 +374,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 118.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8307085922713746395, guid: 7beacb7963b9c2b44a92346b5077b220,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1554080136}
+    - target: {fileID: 8307085922713746395, guid: 7beacb7963b9c2b44a92346b5077b220,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
     - target: {fileID: 8307085922713746396, guid: 7beacb7963b9c2b44a92346b5077b220,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -383,6 +398,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 104.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307085922751232232, guid: 7beacb7963b9c2b44a92346b5077b220,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1554080136}
+    - target: {fileID: 8307085922751232232, guid: 7beacb7963b9c2b44a92346b5077b220,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 8307085922751232233, guid: 7beacb7963b9c2b44a92346b5077b220,
         type: 3}
@@ -1669,6 +1694,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 102.7
       objectReference: {fileID: 0}
+    - target: {fileID: 96485867950590513, guid: f5b163135c1da1545bf4c04231a4dcb2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1554080136}
+    - target: {fileID: 96485867950590513, guid: f5b163135c1da1545bf4c04231a4dcb2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 96485868110753294, guid: f5b163135c1da1545bf4c04231a4dcb2,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1904,6 +1939,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 102.7
       objectReference: {fileID: 0}
+    - target: {fileID: 96485868879430150, guid: f5b163135c1da1545bf4c04231a4dcb2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1554080136}
+    - target: {fileID: 96485868879430150, guid: f5b163135c1da1545bf4c04231a4dcb2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5b163135c1da1545bf4c04231a4dcb2, type: 3}
 --- !u!224 &1289104649 stripped
@@ -2024,12 +2069,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5c8970e6f2d49439af0748eeed15fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stop_Watch: 0
   score: {fileID: 1788572080}
   Final_Score: {fileID: 274725174}
   Finish_Time: {fileID: 274725173}
   Pause_Menu: {fileID: 1289104650}
   InGame_Menu: {fileID: 1788572079}
   Level_Completed: {fileID: 274725175}
+  PatientID: 
+  GameID: 
+  LevelID: 
+  MaxScore: 
+  Diffcuilty: 
+  TimeTaken: 
+  Score: 
+  Progress_URL: http://8a20952c6e8c.ngrok.io/progress
 --- !u!114 &1554080139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2229,7 +2283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738185629}
   m_LocalRotation: {x: 0.19252197, y: 0, z: 0, w: 0.9812927}
-  m_LocalPosition: {x: 0.08, y: 1.46, z: -1.967}
+  m_LocalPosition: {x: 0.08, y: 1.46, z: -2.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

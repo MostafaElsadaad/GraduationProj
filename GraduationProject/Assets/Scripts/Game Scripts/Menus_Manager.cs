@@ -2,41 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class Menus_Manager : MonoBehaviour
 {
-    //Pause menu
-    //public void BackToLevelsMenu()
-    //{
-      //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    //}
-
-    //pause menu + level complete menu
-    public void RestartGame()
+    private ToggleGroup diff;
+    public IEnumerator<Toggle> toggle;
+    private GameObject[] play_buttons;
+    
+    void Update()
     {
-       // SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
-        Resources.UnloadUnusedAssets();
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name , LoadSceneMode.Single);
+        diff = GameObject.FindObjectOfType<ToggleGroup>();
+
+        play_buttons = GameObject.FindGameObjectsWithTag("play_button");
+
+        if (diff != null)
+        {
+
+            if (diff.AnyTogglesOn())
+            {
+                foreach (GameObject button in play_buttons)
+                {
+                    button.GetComponent<Button>().enabled = true;
+                }
+                toggle = diff.ActiveToggles().GetEnumerator();
+                toggle.MoveNext();
+                Toggle tog = toggle.Current;
+                // Debug.Log(tog.name);
+                Game_Leader.diffcuilty = tog.name;
+
+            }
+            else
+            {
+                foreach (GameObject button in play_buttons)
+                {
+                    button.GetComponent<Button>().enabled = false;
+                }
+            }
+        }
+
     }
-
-
-    //level complete menu
-    public void BackToMainMenu()
+    public void Selected_Level(Button button)
     {
-        SceneManager.LoadSceneAsync("Start menu" , LoadSceneMode.Single);
-       
-    }
-
-    public void NextLevel()
-    {
-        int current_scene = SceneManager.GetActiveScene().buildIndex; 
-        SceneManager.LoadScene(current_scene + 1);
-        Scene next_scene = SceneManager.GetSceneByBuildIndex(current_scene + 1);
-        Game_Leader.Level = next_scene.name; 
-
-
-
-
+        Game_Leader.Level = button.name;
     }
 
     //cubes levels menu
@@ -63,13 +70,6 @@ public class Menus_Manager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("PianoTiles", LoadSceneMode.Single);
     }
-
-    //main menu
-    //public void CubesLevelsMenu()
-    //{
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    //}
-
     public void quitGame()
     {
        // Debug.Log("Quit!");
