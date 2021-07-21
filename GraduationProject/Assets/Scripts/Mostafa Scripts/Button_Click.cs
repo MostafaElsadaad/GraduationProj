@@ -20,4 +20,20 @@ public class Button_Click : MonoBehaviour
 
         Debug.Log("Clicked!!");
     }
+    public void midfing() {
+
+        Debug.Log("midfing");
+    }
+    public void Indexfing() {
+
+        Debug.Log("Index");
+    }
+    public void ringfing() {
+
+        Debug.Log("ring");
+    }
+    public void pinkyfing() {
+
+        Debug.Log("pinky");
+    }
 }
