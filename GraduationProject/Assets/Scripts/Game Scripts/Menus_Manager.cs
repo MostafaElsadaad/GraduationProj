@@ -29,6 +29,7 @@ public class Menus_Manager : MonoBehaviour
                 Toggle tog = toggle.Current;
                 // Debug.Log(tog.name);
                 Game_Leader.diffcuilty = tog.name;
+                Game_Leader2.diffcuilty = tog.name; 
 
             }
             else

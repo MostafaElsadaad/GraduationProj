@@ -7,7 +7,8 @@ public class Moves_Generator : MonoBehaviour
    public GameObject[] Moves = new GameObject[4];
     private float timer, waitingTime = 4.0f;
     private int random_num , temp=18;
-   
+    public static bool pauseButton_clicked = false; 
+    string move;
     void Start()
     {
         Generate_Move();
@@ -19,8 +20,11 @@ public class Moves_Generator : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > waitingTime)
           {
-            Generate_Move();
-            timer = 0.0f;    
+            if (!pauseButton_clicked)
+            {
+                Generate_Move();
+                timer = 0.0f;
+            }
           }
         
 
@@ -38,8 +42,46 @@ public class Moves_Generator : MonoBehaviour
         temp = random_num;
 
     }
-   
-        
-    
- 
+  
+    public void Index_Opos()
+    {
+        move = "index_opos";
+        Track_Move(move);
+        Debug.Log(move);
+    }
+    public void Middle_Opos()
+    {
+        move = "middle_opos";
+        Track_Move(move);
+        Debug.Log(move);
+    }
+    public void Ring_Opos()
+    {
+        move = "ring_opos";
+        Track_Move(move); 
+        Debug.Log(move);
+
+    }
+    public void Pinky_Opos()
+    {
+        move = "pinky_opos"; 
+        Track_Move(move);
+        Debug.Log(move);
+
+    }
+    private void Track_Move(string move)
+    {
+        if (!string.IsNullOrEmpty(move))
+        {
+            if (GameObject.FindGameObjectsWithTag(move).Length > 0)
+            {
+                Destroy(GameObject.FindGameObjectsWithTag(move)[0]);
+                Game_Leader2.points++;
+            }
+        }
+    }
+
+
+
+
 }
