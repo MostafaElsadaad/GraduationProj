@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4004402473392973768}
   - component: {fileID: 1358010271648809923}
   - component: {fileID: 7592330987454188780}
+  - component: {fileID: 4438199223177371919}
   m_Layer: 0
   m_Name: 'Red_Cube '
   m_TagString: Red_Cube
@@ -124,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0169dccf7753734e9b866a4582413f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damping_factor: 10
 --- !u!114 &7592330987454188780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,3 +140,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scored: 0
   moved: 0
+--- !u!114 &4438199223177371919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425398816171336857}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f10fa40360571247a7ca806d6859557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _manager: {fileID: 0}
+  _ignoreHoverMode: 0
+  _isIgnoringAllHoverState: 0
+  _ignorePrimaryHover: 0
+  _ignoreContact: 0
+  _ignoreGrasping: 0
+  _contactForceMode: 0
+  _allowMultiGrasp: 0
+  _moveObjectWhenGrasped: 1
+  graspedMovementType: 0
+  _overrideInteractionLayer: 0
+  _interactionLayer:
+    layerIndex: 0
+  _overrideNoContactLayer: 0
+  _noContactLayer:
+    layerIndex: 0
+  _eventTable:
+    _entries: []

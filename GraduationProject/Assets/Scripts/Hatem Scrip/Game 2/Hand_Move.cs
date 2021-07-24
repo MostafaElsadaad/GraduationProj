@@ -6,11 +6,14 @@ using UnityEngine.UI;
 public class Hand_Move : MonoBehaviour
 {
     Rigidbody cube;
-    RecievedData DataReciever;
-    string move;
+    public static int speed ;
+    public static bool cube_stop = false;  
+  //  RecievedData DataReciever;
+    
     void Start()
     {
-        DataReciever = FindObjectOfType<RecievedData>();
+       
+      //  DataReciever = FindObjectOfType<RecievedData>();
         cube = this.GetComponent<Rigidbody>();
 
     }
@@ -18,11 +21,12 @@ public class Hand_Move : MonoBehaviour
 
     void Update()
     {
-        move = DataReciever.gesture;
-        Track_Move(move);
-        Debug.Log(move);
+       // move = DataReciever.gesture;
+        
+        
 
     }
+  
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "End")
@@ -34,16 +38,17 @@ public class Hand_Move : MonoBehaviour
     private void FixedUpdate()
     {
         // cube.AddForce(0, -4, 0 ,  ForceMode.Acceleration); 
-        cube.velocity = new Vector3(0, -1, 0);
-    }
-    private void Track_Move(string move)
-    {
-        if (!string.IsNullOrEmpty(move) && !move.Equals("open") && !move.Equals("grasp"))
+        if (!cube_stop)
         {
-            Destroy(GameObject.FindGameObjectsWithTag(move)[0]);
-            Game_Leader2.points++;
+            cube.velocity = new Vector3(0, speed, 0);
         }
+        else
+        {
+            cube.velocity = new Vector3(0, 0, 0);
+        }
+       
     }
+ 
 
     private void OnMouseDown()
     {
@@ -53,8 +58,8 @@ public class Hand_Move : MonoBehaviour
 
     public void get_move(Button button)
     {  
-        move = button.name;
-        Destroy(GameObject.Find(move));
+     //   move = button.name;
+      //  Destroy(GameObject.Find(move));
        // Destroy(GameObject.FindGameObjectsWithTag(move)[0]);
     }
 }
