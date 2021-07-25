@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Level_2_Generation : MonoBehaviour
 {                        // -------Green Side-----------// 
-    public const float limit = 0.3f, Y = 0.2f, GreenSideX_Min = -1.85f, GreenSideX_Max = -0.85f, GreenSideZ_Min = -0.87f, GreenSideZ_Max = 0.26f,
+    public const float limit = 0.3f, Y = 0.115f, GreenSideX_Min = -1.85f, GreenSideX_Max = -0.85f, GreenSideZ_Min = -0.87f, GreenSideZ_Max = 0.26f,
                         //-------Purple Side-----------// 
                  PurpleSideX_Min = 0.32f, PurpleSideX_Max = 2.04f, PurpleSideZ_Min = GreenSideZ_Min, PurpleSideZ_Max = GreenSideZ_Max;
                         

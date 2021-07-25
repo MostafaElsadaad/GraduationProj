@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Level_1_Generation : MonoBehaviour {
-    public const float limit = 0.4f, BlueSideX_Min = -1.89f, BlueSideX_Max = -0.158f, RedSideX_Min = 0.85f, RedSideX_Max = 2.043f, Y = 0.2f, Z_Min = -0.892f, Z_Max = 1.837f; // playground_coordinates
+    public const float limit = 0.06f, BlueSideX_Min = -0.2228f, BlueSideX_Max = 0.038f, RedSideX_Min = 0.1165f, RedSideX_Max = 0.362f, Y = 0.115f, Z_Min = -1.554f, Z_Max = -1.1284f; // playground_coordinates
 
     public Vector3[] RedSide_Cubes = new Vector3[10], BlueSide_Cubes = new Vector3[10];
     public GameObject RedCube_prefab, BlueCube_prefab;
