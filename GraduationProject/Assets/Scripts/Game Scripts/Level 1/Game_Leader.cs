@@ -12,9 +12,9 @@ public class Game_Leader : MonoBehaviour
     public TextMeshProUGUI score , Final_Score , Finish_Time;
     public GameObject Pause_Menu, InGame_Menu, Level_Completed ;
     public static string diffcuilty , Level  ;
-    public string PatientID,  GameID , LevelID, MaxScore , Diffcuilty , TimeTaken , Score;
-   // private bool Request_Sent ;
-    public string Progress_URL = "http://8a20952c6e8c.ngrok.io/progress";
+    private string PatientID,  GameID , LevelID, MaxScore , Diffcuilty , TimeTaken , Score;
+    private bool Request_Sent ;
+    private string Progress_URL = "http://192.168.1.46:3000/progress";
 
 
     void Start()
@@ -27,17 +27,17 @@ public class Game_Leader : MonoBehaviour
             case null:
                 Diffcuilty = "easy";
                 Level_Cubes = 3;
-                if (Level == "Level Four") { fence_height = new Vector3(0, 0.2f, 0); fence_pos = new Vector3(0, 0.1f, 0); }
+                if (Level == "Level Four") { fence_height = new Vector3(0, 0.36f, 0); fence_pos = new Vector3(0, 0.18f, 0); }
                 break;
             case "mediumToggle":
                 Diffcuilty = "medium";
                 Level_Cubes = 5;
-                if (Level == "Level Four") { fence_height = new Vector3(0, 0.3f, 0); fence_pos = new Vector3(0, 0.15f, 0); }
+                if (Level == "Level Four") { fence_height = new Vector3(0, 0.46f , 0); fence_pos = new Vector3(0, 0.23f, 0); }
                 break;
             case "hardToggle":
                 Diffcuilty = "hard";
                 fence_height = new Vector3();
-                if (Level == "Level Four") { fence_height = new Vector3(0, 0.4f, 0); fence_pos = new Vector3(0, 0.2f, 0); }
+                if (Level == "Level Four") { fence_height = new Vector3(0, 0.56f, 0); fence_pos = new Vector3(0, 0.28f, 0); }
                 Level_Cubes = 7;
                 break;
             
@@ -46,26 +46,26 @@ public class Game_Leader : MonoBehaviour
         {
             case "Level One":
             case null:
-              //  LevelID = API_Handler.Game_Info.data[0].Levels[0].id; 
+                LevelID = API_Handler.Game_Info.data[0].levels[0].id; 
                 Level_1_Generation.required_cubes = Level_Cubes;
                 Max_Score = Level_Cubes * 2;
                 break;
             case "Level Two":
-             //   LevelID = API_Handler.Game_Info.data[0].Levels[1].id;
+                LevelID = API_Handler.Game_Info.data[0].levels[1].id;
                 Level_2_Generation.required_cubes = Level_Cubes;
                 Max_Score = Level_Cubes * 4;
                 this.gameObject.GetComponent<Level_2_Generation>().enabled = true;
                 // Debug.Log(Level_2_Generation.required_cubes);
                 break;
             case "Level Three":
-             // LevelID = API_Handler.Game_Info.data[0].Levels[2].id;
+                LevelID = API_Handler.Game_Info.data[0].levels[2].id;
                 Level_1_Generation.required_cubes = Level_Cubes;
                 Max_Score = (Level_Cubes * 2) + 3; 
                 break;
 
             
             case "Level Four":
-             // LevelID = API_Handler.Game_Info.data[0].Levels[3].id;
+                LevelID = API_Handler.Game_Info.data[0].levels[3].id;
                 GameObject.Find("barrier").GetComponent<Transform>().localScale += fence_height;
                 GameObject.Find("barrier").GetComponent<Transform>().position += fence_pos;
                 Level_1_Generation.required_cubes = Level_Cubes;
@@ -83,10 +83,10 @@ public class Game_Leader : MonoBehaviour
         Level_Completed.gameObject.SetActive(false);
 
         // ------------API--------------------//
-        //Request_Sent = false;
-        //  PatientID = API_Handler.Patient.id;
-        // GameID = API_Handler.Game_Info.data[0].id;
-        //  MaxScore = Max_Score.ToString();
+        Request_Sent = false;
+         PatientID = API_Handler.Patient.id;
+         GameID = API_Handler.Game_Info.data[0].id;
+         MaxScore = Max_Score.ToString();
 
     }
 
@@ -125,7 +125,7 @@ public class Game_Leader : MonoBehaviour
 
     public void BackToMainMenu()
     {
-       // Post_Stats();
+        Post_Stats();
        SceneManager.LoadSceneAsync("Start menu", LoadSceneMode.Single);
         
 
@@ -147,8 +147,8 @@ public class Game_Leader : MonoBehaviour
             Finish_Time.text = "TIME: " + Calculate_Time() ;
             Final_Score.text = "SCORE: " + Max_Score.ToString();
             Level_Completed.gameObject.SetActive(true);
-          //  if (!Request_Sent)
-          //  { Post_Stats(); Request_Sent = true; } 
+            if (!Request_Sent)
+            { Post_Stats(); Request_Sent = true; } 
 
         }
         else { 
@@ -171,7 +171,7 @@ public class Game_Leader : MonoBehaviour
     public void Post_Stats()
     {
         TimeTaken = Calculate_Time(); 
-        string[] key = { "patientId", "gameId " , "levelId", "timeSpent", "score", "MaxScore" , "Diffcuilty"};
+        string[] key = { "patientId", "gameId " , "levelId", "timeSpent", "score", "maxScore" , "difficulty"};
         string[] value = { PatientID, GameID, LevelID, TimeTaken, Score, MaxScore, Diffcuilty };
         //Post_Request(key,value); 
         GameObject.Find("Manager").GetComponent<API_Handler>().Post_Request(key, value,Progress_URL);

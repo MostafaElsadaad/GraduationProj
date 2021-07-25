@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class API_Handler : MonoBehaviour
 {
-    private const string Login_URL = "http://8a20952c6e8c.ngrok.io/validate";
-    private const string GameInfo_URL = "http://8a20952c6e8c.ngrok.io/games";
+    private const string Login_URL = "http://192.168.1.46:3000/validate";
+    private const string GameInfo_URL = "http://192.168.1.46:3000/games";
     private float timer, waitingTime = 4.0f;
 
 
     public static bool Logged_in = false , Game_Data_Sent = false ;
-    private string email = "salama@mostashfa.com", password = "salama"  ;
+    private string email = "mostafaali03@hotmail.com", password = "123"  ;
     public static string Patient_ID ; 
 
     private string[] key = new string[2]; string[] value = new string[2]; 
@@ -23,7 +23,7 @@ public class API_Handler : MonoBehaviour
     [System.Serializable]
     public struct level { public string id; };
     [System.Serializable]
-    public struct game { public string id; public string name; public level[] Levels; };
+    public struct game { public string id; public string name; public level[] levels; };
     [System.Serializable]
     public struct game_list { public game[] data; };
 
@@ -33,7 +33,7 @@ public class API_Handler : MonoBehaviour
     private void Start()
     {
         key[0] = "email"; value[0] = email;
-        key[1] = "name"; value[1] = password;
+        key[1] = "password"; value[1] = password;
         
         
     }
@@ -103,8 +103,8 @@ public class API_Handler : MonoBehaviour
                 
                    
                 
-               Debug.Log(Game_Info.data[0].id + "," + Game_Info.data[0].name + "," + Game_Info.data[0].Levels[0].id + "," + Game_Info.data.Length);
-               Debug.Log(Game_Info.data[1].id + "," + Game_Info.data[1].name + "," + Game_Info.data[1].Levels[0].id);
+             //  Debug.Log(Game_Info.data[0].id + "," + Game_Info.data[0].name + "," + Game_Info.data[0].Levels[0].id + "," + Game_Info.data.Length);
+            //   Debug.Log(Game_Info.data[1].id + "," + Game_Info.data[1].name + "," + Game_Info.data[1].Levels[0].id);
                 Game_Data_Sent = true;
                 
 

@@ -7,13 +7,13 @@ public class Game_Leader2 : MonoBehaviour
 {
     public static int points;
     private const int minute_second = 60, hour_second = 3600;
-    private int pause_moment, Clock, pause_time, resume_time, Stop_Watch, Max_Score = 6;
+    private int pause_moment, Clock, pause_time, resume_time, Stop_Watch, Max_Score = 12;
     public TextMeshProUGUI score, Final_Score, Finish_Time;
     public GameObject Pause_Menu, InGame_Menu, Level_Completed;
     public static string diffcuilty, Level;
-    public string PatientID, GameID, LevelID, MaxScore, Diffcuilty, TimeTaken, Score;
-    // private bool Request_Sent ;
-    public string Progress_URL = "http://8a20952c6e8c.ngrok.io/progress";
+    private string PatientID, GameID, LevelID, MaxScore, Diffcuilty, TimeTaken, Score;
+     private bool Request_Sent ;
+    private string Progress_URL = "http://192.168.1.46";
     void Start()
     {
 
@@ -45,10 +45,11 @@ public class Game_Leader2 : MonoBehaviour
         Level_Completed.gameObject.SetActive(false);
 
         // ------------API--------------------//
-        //Request_Sent = false;
-        //  PatientID = API_Handler.Patient.id;
-        // GameID = API_Handler.Game_Info.data[0].id;
-        //  MaxScore = Max_Score.ToString();
+        Request_Sent = false;
+          PatientID = API_Handler.Patient.id;
+         GameID = API_Handler.Game_Info.data[1].id;
+         LevelID = API_Handler.Game_Info.data[1].levels[0].id;
+        MaxScore = Max_Score.ToString();
 
     }
 
@@ -94,7 +95,7 @@ public class Game_Leader2 : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        // Post_Stats();
+         Post_Stats();
         SceneManager.LoadSceneAsync("Start menu", LoadSceneMode.Single);
 
 
@@ -108,8 +109,8 @@ public class Game_Leader2 : MonoBehaviour
             Finish_Time.text = "TIME: " + Calculate_Time();
             Final_Score.text = "SCORE: " + Max_Score.ToString();
             Level_Completed.gameObject.SetActive(true);
-            //  if (!Request_Sent)
-            //  { Post_Stats(); Request_Sent = true; } 
+              if (!Request_Sent)
+              { Post_Stats(); Request_Sent = true; } 
 
         }
         else
@@ -133,7 +134,7 @@ public class Game_Leader2 : MonoBehaviour
     public void Post_Stats()
     {
         TimeTaken = Calculate_Time();
-        string[] key = { "patientId", "gameId ", "levelId", "timeSpent", "score", "MaxScore", "Diffcuilty" };
+        string[] key = { "patientId", "gameId ", "levelId", "timeSpent", "score", "maxScore", "difficulty" };
         string[] value = { PatientID, GameID, LevelID, TimeTaken, Score, MaxScore, Diffcuilty };
         //Post_Request(key,value); 
         GameObject.Find("Manager").GetComponent<API_Handler>().Post_Request(key, value, Progress_URL);
