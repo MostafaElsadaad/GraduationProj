@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class AudioManager : MonoBehaviour
 
 	public Sound[] sounds;
 
+	public Slider menumusic;
 	void Awake()
 	{
 		if (instance != null)
@@ -51,8 +53,13 @@ public class AudioManager : MonoBehaviour
 
 		s.source.Play();
 	}
+    void Update() {
+        Sound menumx = Array.Find(sounds, item => item.name == "Theme");
+        menumx.volume = menumusic.value;
+		menumx.source.volume = menumx.volume * (1f + UnityEngine.Random.Range(-menumx.volumeVariance / 2f, menumx.volumeVariance / 2f));
+	}
 
-	public void Stop(string sound) {
+    public void Stop(string sound) {
 		Sound s = Array.Find(sounds, item => item.name == sound);
 		if (s == null) {
 			Debug.LogWarning("Sound: " + name + " not found!");
